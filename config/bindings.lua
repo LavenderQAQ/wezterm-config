@@ -184,13 +184,29 @@ local key_tables = {
    },
 }
 
+local function make_mouse_binding(dir, streak, button, mods, action)
+   return {
+      event = { [dir] = { streak = streak, button = button } },
+      mods = mods,
+      action = action,
+   }
+end
+
 local mouse_bindings = {
-   -- Ctrl-click will open the link under the mouse cursor
-   {
-      event = { Up = { streak = 1, button = 'Left' } },
-      mods = 'CTRL',
-      action = act.OpenLinkAtMouseCursor,
-   },
+   make_mouse_binding(
+      'Up',
+      1,
+      'Left',
+      'NONE',
+      wezterm.action.CompleteSelection('ClipboardAndPrimarySelection')
+   ),
+   make_mouse_binding(
+      'Up',
+      1,
+      'Left',
+      mod.SUPER,
+      wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor('ClipboardAndPrimarySelection')
+   ),
 }
 
 return {
