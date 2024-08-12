@@ -7,7 +7,7 @@ local mod = {}
 
 if platform.is_mac then
    mod.SUPER = 'SUPER'
-   mod.SUPER_REV = 'SUPER|CTRL'
+   mod.SUPER_REV = 'SUPER|SHIFT'
 elseif platform.is_win or platform.is_linux then
    mod.SUPER = 'ALT' -- to not conflict with Windows key shortcuts
    mod.SUPER_REV = 'ALT|CTRL'
@@ -54,8 +54,8 @@ local keys = {
    { key = 'Backspace',  mods = mod.SUPER,     action = act.SendString '\x15' },
 
    -- copy/paste --
-   { key = 'c',          mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
-   { key = 'v',          mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
+   { key = 'c',          mods = mod.SUPER,  action = act.CopyTo('Clipboard') },
+   { key = 'v',          mods = mod.SUPER,  action = act.PasteFrom('Clipboard') },
 
    -- tabs --
    -- tabs: spawn+close
@@ -113,13 +113,13 @@ local keys = {
    -- panes --
    -- panes: split panes
    {
-      key = [[\]],
+      key = [[D]],
       mods = mod.SUPER,
       action = act.SplitVertical({ domain = 'CurrentPaneDomain' }),
    },
    {
-      key = [[\]],
-      mods = mod.SUPER_REV,
+      key = [[d]],
+      mods = mod.SUPER,
       action = act.SplitHorizontal({ domain = 'CurrentPaneDomain' }),
    },
 
@@ -128,10 +128,14 @@ local keys = {
    { key = 'w',     mods = mod.SUPER,     action = act.CloseCurrentPane({ confirm = false }) },
 
    -- panes: navigation
-   { key = 'k',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Up') },
-   { key = 'j',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Down') },
-   { key = 'h',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Left') },
-   { key = 'l',     mods = mod.SUPER_REV, action = act.ActivatePaneDirection('Right') },
+   { key = 'k',     mods = mod.SUPER, action = act.ActivatePaneDirection('Up') },
+   { key = 'j',     mods = mod.SUPER, action = act.ActivatePaneDirection('Down') },
+   { key = 'h',     mods = mod.SUPER, action = act.ActivatePaneDirection('Left') },
+   { key = 'l',     mods = mod.SUPER, action = act.ActivatePaneDirection('Right') },
+   { key = 'k',     mods = mod.SUPER_REV, action = act.AdjustPaneSize{'Up', 1} },
+   { key = 'j',     mods = mod.SUPER_REV, action = act.AdjustPaneSize{'Down', 1} },
+   { key = 'h',     mods = mod.SUPER_REV, action = act.AdjustPaneSize{'Left', 1} },
+   { key = 'l',     mods = mod.SUPER_REV, action = act.AdjustPaneSize{'Right', 1} },
    {
       key = 'p',
       mods = mod.SUPER_REV,

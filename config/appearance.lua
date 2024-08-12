@@ -10,9 +10,11 @@ return {
    webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
    -- color scheme
-   colors = colors,
+   -- colors = colors,
+   color_scheme = 'Breeze',
 
    -- background
+   --[[
    background = {
       {
          source = { File = wezterm.GLOBAL.background },
@@ -25,6 +27,7 @@ return {
          opacity = 0.96,
       },
    },
+   --]]
 
    -- scrollbar
    enable_scroll_bar = true,
