@@ -11,7 +11,7 @@ return {
 
    -- color scheme
    -- colors = colors,
-   color_scheme = 'Breeze',
+   color_scheme = 'Dracula',
 
    -- background
    --[[
