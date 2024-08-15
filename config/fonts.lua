@@ -5,7 +5,8 @@ local font = 'JetBrainsMono Nerd Font'
 local font_size = platform().is_mac and 13 or 13
 
 return {
-   font = wezterm.font(font, { weight = 'Bold', italic = false }),
+   --font = wezterm.font(font, { weight = 'Bold', italic = false }),
+   font = wezterm.font(font),
    font_size = font_size,
 
    --ref: https://wezfurlong.org/wezterm/config/lua/config/freetype_pcf_long_family_names.html#why-doesnt-wezterm-use-the-distro-freetype-or-match-its-configuration
