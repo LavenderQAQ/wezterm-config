@@ -57,6 +57,24 @@ local keys = {
     },
    },
 
+   -- set pane title --
+   {
+     key = 'a',
+     mods = mod.SUPER,
+     action = act.PromptInputLine {
+       -- description = 'Enter new name for tab',
+       -- initial_value = 'My Tab Name',
+       action = wezterm.action_callback(function(window, pane, line)
+         -- line will be `nil` if they hit escape without entering anything
+         -- An empty string if they just hit enter
+         -- Or the actual line of text they wrote
+         if line then
+           window:active_tab():set_title(line)
+         end
+       end),
+     },
+   },
+
    -- cursor movement --
    { key = 'LeftArrow',  mods = mod.SUPER,     action = act.SendString '\x1bOH' },
    { key = 'RightArrow', mods = mod.SUPER,     action = act.SendString '\x1bOF' },

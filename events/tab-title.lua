@@ -78,8 +78,11 @@ M.setup = function()
       local process_name = _set_process_name(tab.active_pane.foreground_process_name)
       local is_admin = _check_if_admin(tab.active_pane.title)
       local is_wsl = _check_if_wsl(process_name)
-      local title =
-         _set_title(process_name, tab.active_pane.title, max_width, ((is_admin or is_wsl) and 8))
+      local title = tab.tab_title
+      if not (title and #title > 0) then
+         title =
+            _set_title(process_name, tab.active_pane.title, max_width, ((is_admin or is_wsl) and 8))
+      end
 
       if tab.is_active then
          bg = colors.is_active.bg
