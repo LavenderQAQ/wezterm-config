@@ -84,6 +84,9 @@ local keys = {
    { key = 'c',          mods = mod.SUPER,  action = act.CopyTo('Clipboard') },
    { key = 'v',          mods = mod.SUPER,  action = act.PasteFrom('Clipboard') },
 
+   -- active copy mode --
+   { key = 'x',          mods = mod.SUPER,  action = act.ActivateCopyMode },
+
    -- tabs --
    -- tabs: spawn+close
    { key = 't',          mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
