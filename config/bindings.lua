@@ -75,6 +75,9 @@ local keys = {
      },
    },
 
+   -- shift+enter --
+   { key = 'Enter', mods = 'SHIFT', action = act.SendString '\x1b[13;2u' },
+
    -- cursor movement --
    { key = 'LeftArrow',  mods = mod.SUPER,     action = act.SendString '\x1bOH' },
    { key = 'RightArrow', mods = mod.SUPER,     action = act.SendString '\x1bOF' },

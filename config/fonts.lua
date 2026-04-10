@@ -2,7 +2,7 @@ local wezterm = require('wezterm')
 local platform = require('utils.platform')
 
 local font = 'JetBrainsMono Nerd Font'
-local font_size = platform().is_mac and 13 or 13
+local font_size = platform().is_mac and 12 or 12
 
 return {
    --font = wezterm.font(font, { weight = 'Bold', italic = false }),
