@@ -13,8 +13,5 @@ return {
    freetype_load_target = 'Normal', ---@type 'Normal'|'Light'|'Mono'|'HorizontalLcd'
    freetype_render_target = 'Normal', ---@type 'Normal'|'Light'|'Mono'|'HorizontalLcd'
 
-   -- 灰度抗锯齿，不依赖 LCD 子像素，跨屏幕通用
    freetype_interpreter_version = 40,
-   font_antialias = 'Greyscale', ---@type 'None'|'Greyscale'|'Subpixel'
-   font_hinting = 'Full', ---@type 'None'|'Slight'|'Medium'|'Full'
 }
